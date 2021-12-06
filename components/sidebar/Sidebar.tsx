@@ -45,7 +45,7 @@ const Sidebar = () => {
           <ul className={css.sidebarList}>
             <li
               className={classNames(css.sidebarListItem, {
-                [css.active]: true,
+                [css.active]: false,
               })}
             >
               <PermIdentity className='sidebarIcon' /> Users
@@ -69,7 +69,7 @@ const Sidebar = () => {
           <ul className={css.sidebarList}>
             <li
               className={classNames(css.sidebarListItem, {
-                [css.active]: true,
+                [css.active]: false,
               })}
             >
               <MailOutline className='sidebarIcon' />
@@ -90,7 +90,7 @@ const Sidebar = () => {
           <ul className={css.sidebarList}>
             <li
               className={classNames(css.sidebarListItem, {
-                [css.active]: true,
+                [css.active]: false,
               })}
             >
               <WorkOutline className='sidebarIcon' />
