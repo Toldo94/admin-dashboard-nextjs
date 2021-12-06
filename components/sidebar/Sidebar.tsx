@@ -1,4 +1,8 @@
 import React from 'react';
+
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 import classNames from 'classnames';
 
 import {
@@ -19,6 +23,7 @@ import {
 import css from './sidebar.module.scss';
 
 const Sidebar = () => {
+  const router = useRouter();
   return (
     <div className={css.sidebar}>
       <div className={css.sidebarWrapper}>
@@ -27,10 +32,14 @@ const Sidebar = () => {
           <ul className={css.sidebarList}>
             <li
               className={classNames(css.sidebarListItem, {
-                [css.active]: true,
+                [css.active]: router.asPath === '/admin-dashboard',
               })}
             >
-              <LineStyle className={css.sidebarIcon} /> Home
+              <Link href='/admin-dashboard'>
+                <a>
+                  <LineStyle className={css.sidebarIcon} /> Home
+                </a>
+              </Link>
             </li>
             <li className={css.sidebarListItem}>
               <Timeline className={css.sidebarIcon} /> Analytics
@@ -43,13 +52,18 @@ const Sidebar = () => {
         <div className={css.sidebarMenu}>
           <h3 className={css.sidebarTitle}>Quick Menu</h3>
           <ul className={css.sidebarList}>
-            <li
-              className={classNames(css.sidebarListItem, {
-                [css.active]: false,
-              })}
-            >
-              <PermIdentity className='sidebarIcon' /> Users
-            </li>
+            <Link href='/admin-dashboard/user-list'>
+              <a>
+                <li
+                  className={classNames(css.sidebarListItem, {
+                    [css.active]:
+                      router.asPath === '/admin-dashboard/user-list',
+                  })}
+                >
+                  <PermIdentity className='sidebarIcon' /> Users
+                </li>
+              </a>
+            </Link>
             <li className={css.sidebarListItem}>
               <Storefront className='sidebarIcon' />
               Products
