@@ -41,6 +41,17 @@ const Sidebar = () => {
                 </a>
               </Link>
             </li>
+            <li
+              className={classNames(css.sidebarListItem, {
+                [css.active]: router.asPath === '/admin-dashboard/posts',
+              })}
+            >
+              <Link href='/admin-dashboard/posts'>
+                <a>
+                  <LineStyle className={css.sidebarIcon} /> Posts
+                </a>
+              </Link>
+            </li>
             <li className={css.sidebarListItem}>
               <Timeline className={css.sidebarIcon} /> Analytics
             </li>

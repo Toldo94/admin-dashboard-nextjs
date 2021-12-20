@@ -6,11 +6,19 @@ import css from './user-details.module.scss';
 
 import { useRouter } from 'next/router';
 
+interface UserProps {
+  name:string;
+  username: string;
+  email: string;
+  website: string;
+  phone: string;
+}
+
 const AdminDashboard = () => {
   const router = useRouter();
   const { uid } = router.query;
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState<UserProps>({} as UserProps);
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(`https://jsonplaceholder.typicode.com/users/${uid}`);
