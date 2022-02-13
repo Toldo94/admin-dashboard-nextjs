@@ -49,6 +49,7 @@ const AdminDashboard = () => {
         </div>
       </div>
     </DashboardLayout>
+
   );
 };
 
